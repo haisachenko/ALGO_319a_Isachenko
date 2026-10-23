@@ -59,7 +59,7 @@ void task_if25()
 		cout << func;
 	}
 	else
-		cout << "What the fuck are you on about" << endl;
+		cout << "Input not integer. Please try again" << endl;
 
 
 }
