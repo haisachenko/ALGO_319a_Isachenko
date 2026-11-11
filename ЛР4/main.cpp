@@ -15,10 +15,15 @@ double CompoundInterest(double P, double r, double n, double A) { // фунці�
 };
 
 double RadToDeg(double R) { // функція для Proc42
-    if (R >= 0 || R < 2*3.14) { // Перевірка на коректність.
+    if (R >= 0 && R < 2*3.14) // Перевірка на коректність.
+    { 
         return (R*180)/3.14;
     }
-    else return 0;
+    else 
+    {
+        cout << "Input is negative or too large. Returning zero: ";
+        return 0;
+    }
     
 };
 
