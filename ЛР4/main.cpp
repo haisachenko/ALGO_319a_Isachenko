@@ -5,12 +5,17 @@ using namespace std;
 //Оголошення функцій
 
 double CompoundInterest(double P, double r, double n, double A) { // фунція для Proc25
-    return A = P * pow((1+r), n);
+    if (P <= 0 || r <= 0 || n <= 0)
+    {
+        cout << "One of the inputs is negative or zero. Please try again with other values." << endl; // Перевірка на негативні числа.
+        return 0;
+    }
+    else return A = P * pow((1+r), n);
     
 };
 
 double RadToDeg(double R) { // функція для Proc42
-    if (R >= 0 || R < 2*3.14) {
+    if (R >= 0 || R < 2*3.14) { // Перевірка на коректність.
         return (R*180)/3.14;
     }
     else return 0;
@@ -111,17 +116,22 @@ void task_Integer31()
 {
     int num;
     if (FuncInput(num))
-        cout << "Input must be integer." << endl;
+        cout << "Something went wrong. Please try again." << endl;
     else
         OutResult(FindScndDigit(num));
 }
 // Декларація функцій Integer31
 bool FuncInput (int & num)
 {
-    cout << endl << "Input your number (must be integer): ";
+    cout << endl << "Input your number (must be integer, and between -100 and 100): ";
     cin >> num;
     if (cin.fail()) // Перевірка вводу
         return true;
+    else if (num > 100 || num < -100) // Додаткова перевірка, бо в завданні немає інших обмежень.
+    {
+        cout << "Input is outside allowed parameter, as per additional task." << endl;
+        return true;
+    }
     else if (num < 0)
     {
         num = -num;
